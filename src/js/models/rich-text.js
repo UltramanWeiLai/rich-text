@@ -1,6 +1,5 @@
-import { exec, querySelector, createElement, addEventListener } from './utils'
 import { formatBlock, defaultParagraphs, defaultConfig } from './config'
-
+import { exec, querySelector, createElement, addEventListener } from './utils'
 
 class RichText {
 
