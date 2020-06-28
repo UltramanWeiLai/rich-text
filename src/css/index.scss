@@ -1,0 +1,67 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+p { margin: 0;}
+
+.th-container {
+
+    position: relative;
+    width: 500px;
+    height: 500px;
+    margin: 20px;
+    background-color: #eee;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    .th-toolbar {
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 20px;
+        font-size: 0;
+        border-bottom: 1px solid #999;
+        background-color: white;
+        box-sizing: border-box;
+
+        > button {
+            
+            height: 20px;
+            line-height: 20px;
+            padding: 0 6px;
+            font-size: 12px;
+            border: 1px solid #999;
+            background-color: #FFF;
+            box-sizing: border-box;
+
+            > b {
+                
+                font-size: 12px;
+            }
+
+            &:hover {
+                background-color: #eee;
+            }
+
+            &._active {
+                color: #008af0;
+            }
+        }
+    }
+
+    .th-edit-box {
+
+        height: calc(100% - 20px);
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #999;
+        border-top: none;
+        box-sizing: border-box;
+        outline: none;
+    }
+}
