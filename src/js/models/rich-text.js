@@ -13,7 +13,7 @@ class RichText {
         this.el.classList.add('th-container')
 
         this.defaultParagraph = 'p'
-
+        this.range = ''
         this.createEditNode()
         this.createToolbarNode(config)
     }
@@ -33,6 +33,9 @@ class RichText {
             if (event.key === 'Enter' &&  (defaultParagraphs.indexOf(document.queryCommandValue(formatBlock)) != -1) ) {
                 setTimeout(() => exec(formatBlock, `<${this.defaultParagraph}>`), 0)
             }
+        }
+        editDiv.onmouseup = () => {
+            this.range = window.getSelection().getRangeAt(0)
         }
 
         this.el.appendChild(editDiv)
@@ -61,6 +64,13 @@ class RichText {
             button.title = item.title
             button.setAttribute('type', 'button')
             button.onclick = () => {
+
+                const sel = window.getSelection()
+                if(sel.isCollapsed && (this.range && !this.range.collapsed) ) {
+                    sel.removeAllRanges()
+                    sel.addRange(this.range)
+                }
+
                 item.result()
             }
 
